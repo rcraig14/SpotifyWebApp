@@ -61,4 +61,7 @@ typings/
 .next
 
 # Prevent app keys from being pushed up accidently
-appkey.json 
+appkey.json
+
+server.cert
+server.key
