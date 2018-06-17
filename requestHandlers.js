@@ -3,7 +3,8 @@ var fs = require("fs");
 var appConfigFile = fs.readFileSync("appkey.json");
 var appKeys = JSON.parse(appConfigFile);
 
-
+var scopes = 'user-read-private';
+var redirect_uri = 'https://localhost:8080/callback';
 
 //set route file for html files
 const htmlFiles = __dirname+'/public/html/';
@@ -15,8 +16,6 @@ module.exports = {
   },
 
   login: function(request, response){
-    var scopes = 'user-read-private';
-    var redirect_uri = 'http://localhost:8080';
     response.redirect('https://accounts.spotify.com/authorize'
       +'?response_type=code&client_id='+appKeys.clientId
       +(scopes ? '&scope=' + encodeURIComponent(scopes): '')
